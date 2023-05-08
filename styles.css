@@ -55,6 +55,7 @@
   position: absolute;
   object-fit: cover;
   /* transform: scale(0.5); */
+  filter: opacity(2);
 }
 
 #container {
@@ -64,6 +65,14 @@
   position: absolute;
   top: 0;
   left: 0;
+  /* background-image: url("it_s_night_and_you_re_really_glad_to_be_at_home_by_lerinnnn_df9sfp9.png"); */
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.61),
+      rgba(190, 255, 239, 0.61)
+    ),
+    url("./valley_by_angelforme_dfrju8s.png");
+
+  background-size: cover;
 }
 
 /* body {
