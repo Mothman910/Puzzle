@@ -208,3 +208,59 @@ if (innerWidth < 595.28) {
       }px;`
     );
 }
+
+for (let i = 0; i < 16; i++) {
+  let idName = "puzzel" + (i + 1);
+  let startCords;
+  document.getElementById(idName).addEventListener("touchstart", (n) => {
+    startCords = n.touches[0];
+    console.log(startCords.pageX, startCords.pageY);
+  });
+  let startPositionLeft = parseFloat(
+    document
+      .getElementById(idName)
+      .getAttribute("style")
+      .match(/left: -?\d+/g)[0]
+      .replace("left: ", "")
+  );
+  let startPositionTop = parseFloat(
+    document
+      .getElementById(idName)
+      .getAttribute("style")
+      .match(/top: -?\d+/g)[0]
+      .replace("top: ", "")
+  );
+  document.getElementById(idName).addEventListener("touchmove", (n) => {
+    let currCords = n.touches[0];
+    console.log(
+      startCords.pageX - currCords.pageX,
+      startCords.pageY - currCords.pageY
+    );
+    document
+      .getElementById(idName)
+      .setAttribute(
+        `style`,
+        `left: ${
+          startPositionLeft - (startCords.pageX - currCords.pageX)
+        }px; top: ${startPositionTop - (startCords.pageY - currCords.pageY)}px;`
+      );
+  });
+  document.getElementById(idName).addEventListener("touchend", (n) => {
+    startPositionLeft = parseFloat(
+      document
+        .getElementById(idName)
+        .getAttribute("style")
+        .match(/left: -?\d+/g)[0]
+        .replace("left: ", "")
+    );
+  });
+  document.getElementById(idName).addEventListener("touchend", (n) => {
+    startPositionTop = parseFloat(
+      document
+        .getElementById(idName)
+        .getAttribute("style")
+        .match(/top: -?\d+/g)[0]
+        .replace("top: ", "")
+    );
+  });
+}
