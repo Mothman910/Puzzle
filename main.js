@@ -3,6 +3,11 @@ for (i = 0; i < 15; i++) {
   img.id = `puzzel${i + 1}`;
   img.className = `puzzle`;
   let paths = document.querySelectorAll("path");
+  img.setAttribute("src", "./Julia.jpg");
+  img.setAttribute("width", "595.28");
+  img.setAttribute("height", "546");
+  let container = document.getElementById("container");
+  container.appendChild(img);
 
   let puzzles = document.querySelectorAll(".puzzle");
   paths.forEach((n) => {
@@ -17,12 +22,6 @@ for (i = 0; i < 15; i++) {
       n.setAttribute("style", `${(window.innerWidth / 595.28) * 546}px`);
     }
   });
-
-  img.setAttribute("src", "./Julia.jpg");
-  img.setAttribute("width", "595.28");
-  img.setAttribute("height", "546");
-  let container = document.getElementById("container");
-  container.appendChild(img);
 }
 
 let image = document.querySelectorAll("img");
